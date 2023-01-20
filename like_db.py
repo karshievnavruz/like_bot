@@ -23,14 +23,25 @@ class LikeDB:
         returns
             all users likes
         """
-        pass
+        likes = 0
+        if self.db:
+            for usier, v in self.db.items():
+                likes += v['likes']
+        
+        return likes
         
     def all_dislikes(self):
         """Counts all users dislikes
         returns
             all users dislikes
         """
-        pass
+        likes = 0
+        if self.db:
+            for usier, v in self.db.items():
+                likes += v['dislikes']
+        
+        return likes
+        
         
         
     #Add a like to the database
@@ -55,3 +66,6 @@ class LikeDB:
             The number of likes and dislikes for the post
         '''
         pass
+x=LikeDB(db_path='like_db.json')
+
+print(x.all_likes())
